@@ -29,3 +29,16 @@ app.use('/management',managementRoutes)
 app.use('/sales',salesRoutes)
 
 
+//Mongoose setup
+
+const PORT= process.env.PORT || 8000
+mongoose.connect(process.env.MONGO_URL,{
+	useNewUrlParser:true,
+	useUnifiedTopology:true
+}).then(()=>{
+	app.listen(PORT,()=>{
+		console.log("Server running",{PORT})
+	})
+}).catch((err)=>console.log(err))
+
+
