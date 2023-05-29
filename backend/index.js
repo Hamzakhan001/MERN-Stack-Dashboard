@@ -19,5 +19,9 @@ app.use(cors())
 
 
 // Routes
+app.use('/client',clientRoutes)
+app.use('/general',generalRoutes)
+app.use('/management',managementRoutes)
+app.use('/sales',salesRoutes)
 
 
