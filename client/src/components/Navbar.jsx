@@ -23,11 +23,11 @@ const Navbar = () => {
 	}}
 	>
 		<Toolbar
-		sx={{
-			justifyContent:"space-between"
-		}}
+		  sx={{
+				justifyContent:"space-between"
+		   }}
 		>
-			{/* Left side */}
+		{/* Left side */}
 		 <FlexBetween>
 			<IconButton onClick={()=>console.log("open sidebar")}>
 				<MenuIcon/>
@@ -48,14 +48,16 @@ const Navbar = () => {
 
 		{/* Right Side */}
 		<FlexBetween gap="1.5rem">
-			<IconButton onClick={()=> dispatch(setMode())}> 
-				{theme.palette.mode === 'dark' ? (
-					<FlightLand sx={{fontSize : "25px"}} />
-				): (
-					<FlightLand sx={{fontSize : "25px"}} />
-				)}
+		<IconButton onClick={()=> dispatch(setMode())}> 
+			{theme.palette.mode === 'dark' ? (
+				<FlightLand sx={{fontSize : "25px"}} />
+			): (
+				<FlightLand sx={{fontSize : "25px"}} />
+			)}
 		 </IconButton>
-
+		 <IconButton>
+			<SettingsOutlined sx={{fontSize : "25px"}} />
+		 </IconButton>
 		</FlexBetween>
 
 		</Toolbar>
