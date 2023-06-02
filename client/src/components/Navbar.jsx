@@ -27,9 +27,10 @@ const Navbar = ({isSidebarOpen,setisSidebarOpen}) => {
 				justifyContent:"space-between"
 		   }}
 		>
+			
 		{/* Left side */}
 		 <FlexBetween>
-			<IconButton onClick={()=>console.log("open sidebar")}>
+			<IconButton onClick={()=>setisSidebarOpen(!isSidebarOpen)}>
 				<MenuIcon/>
 			</IconButton>
 			<FlexBetween
