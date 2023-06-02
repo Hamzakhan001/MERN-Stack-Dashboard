@@ -44,3 +44,6 @@ const UserSchema=new mongoose.UserSchema({
 }, {
 	timestamps:true
 })
+
+const User= mongoose.model("User",UserSchema);
+exoprt default User;
