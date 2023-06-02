@@ -34,7 +34,13 @@ const Sidebar = ({drawerWidth,isNonMobile,isSidebarOpen,setisSidebarOpen}) => {
           width:drawerWidth
         }
       }}
-      />)}
+      >
+        <Box width="100%">
+        
+        </Box>
+      </Drawer>
+      
+      )}
 
     </Box>
   )
