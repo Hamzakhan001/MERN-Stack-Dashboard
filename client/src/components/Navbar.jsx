@@ -10,7 +10,7 @@ import { AppBar, IconButton, InputBase, Toolbar } from '@mui/material'
 // import {DarkModeOutlinedIcon} from '@mui/icons-material/DarkModeOutlined';
 
 
-const Navbar = () => {
+const Navbar = ({isSidebarOpen,setisSidebarOpen}) => {
   const dispatch= useDispatch();
   const theme= useTheme()
 

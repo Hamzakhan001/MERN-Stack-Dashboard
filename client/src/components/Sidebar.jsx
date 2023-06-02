@@ -1,6 +1,6 @@
 import React from 'react'
 import {Box, Divider, Drawer, IconButton, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Typography, useTheme } from '@mui/material'
-import { ChevronLeft, HomeOutlined, PublicOutlined, SettingsOutlined, ShoppingCartOutlined, TodayOutlined, TrendingUpOutlined } from '@material-ui/icons'
+import { ChevronLeft, ChevronRightOutlined, HomeOutlined, PublicOutlined, SettingsOutlined, ShoppingCartOutlined, TodayOutlined, TrendingUpOutlined } from '@material-ui/icons'
 import { useEffect,useState } from 'react'
 import { useLocation,useNavigate } from 'react-router-dom';
 import FlexBetween from './FlexBetween';
@@ -122,7 +122,29 @@ const Sidebar = ({drawerWidth,isNonMobile,isSidebarOpen,setisSidebarOpen}) => {
 
                   const lowerText = text.toLowerCase()
                   return (
-                  <ListItem key={text} disablePadding>
+                  <ListItem key={text} disablePadding >
+                    <ListItemButton onClick={()=> {
+                      navigate(`/${lowerText}`)
+                      setActive(lowerText)
+                      }}
+                      sx={{backgroundColor: active === lowerText ? theme.palette.secondary[300] : "transparent",
+                      color: active === lowerText ? theme.palette.primary[600] : theme.palette.secondary[100]
+                    
+                    }}
+                      >
+                        <ListItemIcon
+                        sx={{
+                          ml:"2rem",
+                          color: active === lowerText ? theme.palette.primary[600] : theme.palette.secondary[200]
+                        }}
+                        >
+                          {/* {icon} */}
+                        </ListItemIcon>
+                        <ListItemText primary={text} />
+                        {active === lowerText && (
+                          <ChevronRightOutlined sx={{ml:"auto"}} />
+                        )}
+                    </ListItemButton>
                   </ListItem>
                   )
                   
