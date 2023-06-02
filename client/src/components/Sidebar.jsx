@@ -5,9 +5,38 @@ import { useEffect,useState } from 'react'
 import { useLocation,useNavigate } from 'react-router-dom';
 import FlexBetween from './FlexBetween';
 
-const Sidebar = () => {
+const Sidebar = ({drawerWidth,isNonMobile,isSidebarOpen,setisSidebarOpen}) => {
+  const {pathname} = useLocation();
+  const [active, setActive]= useState("");
+  const navigate = useNavigate();
+  const theme= useTheme();
+
+
+  useEffect(()=>{
+    setActive(pathname.substring(1));
+  },[pathname])
+
   return (
-	<div>Sidebar</div>
+    <Box component="nav">
+      {isSidebarOpen && (
+      <Drawer 
+      open={isSidebarOpen}
+      onClose={()=> setisSidebarOpen(false)}
+      variant='persistent'
+      anchor="left"
+      sx={{
+        width:drawerWidth,
+        "& .MuiDrawer-paper":{
+          color:theme.palette.secondary[200],
+          backgroundColor:theme.palette.background.alt,
+          boxSixing:'border-box',
+          borderWidth: isNonMobile ? 0 : "2px",
+          width:drawerWidth
+        }
+      }}
+      />)}
+
+    </Box>
   )
 }
 
