@@ -8,7 +8,7 @@ const ProductSchema=new mongoose.Schema({
 	category:String,
 	rating:Number,
 	supply:Number,
-	productDetails: { type: mongoose.Schema.Types.ObjectId, ref: 'ProductStat' },
+	// productDetails: { type: mongoose.Schema.Types.ObjectId, ref: 'ProductStat' }
 
 }, {
 	timestamps:true
