@@ -10,7 +10,7 @@ import managementRoutes from './routes/management.js';
 import generalRoutes from './routes/general.js';
 import salesRoutes from './routes/sales.js';
 import User from './models/User.js'
-import {dataUser} from './data/index.js'
+import {dataProduct, dataProductStat, dataUser} from './data/index.js'
 import Product from './models/Product.js'
 import ProductStat from './models/ProductStat.js'
 
@@ -44,6 +44,8 @@ mongoose.connect(process.env.MONGO_URL,{
 		console.log("Server running",{PORT})
 	});
 	// User.insertMany(dataUser)
+	Product.insertMany(dataProduct)
+	ProductStat.insertMany(dataProductStat)
 }).catch((err)=>console.log(err))
 
 
