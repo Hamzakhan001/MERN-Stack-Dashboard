@@ -41,7 +41,7 @@ mongoose.connect(process.env.MONGO_URL,{
 	app.listen(PORT,()=>{
 		console.log("Server running",{PORT})
 	});
-	User.insertMany(dataUser)
+	// User.insertMany(dataUser)
 }).catch((err)=>console.log(err))
 
 
