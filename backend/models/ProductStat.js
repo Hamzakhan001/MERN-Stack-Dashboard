@@ -2,6 +2,7 @@ import mongoose, { mongo } from 'mongoose'
 
 
 const ProductStatSchema=new mongoose.Schema({
+
 	productId:String,
 	yearlySalesTotal:Number,
 	yearlyTotalSoldUnits:Number,
