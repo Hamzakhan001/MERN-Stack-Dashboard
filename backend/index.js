@@ -11,6 +11,8 @@ import generalRoutes from './routes/general.js';
 import salesRoutes from './routes/sales.js';
 import User from './models/User.js'
 import {dataUser} from './data/index.js'
+import Product from './models/Product.js'
+import ProductStat from './models/ProductStat.js'
 
 
 dotenv.config();
