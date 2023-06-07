@@ -18,8 +18,15 @@ export const api= createApi({
 		getCustomers:build.query({
 			query:()=> `client/customers`,
 			providesTags:["Customers"]
+		}),
+		getTransactions:build.query({
+			query:({page, pageSize, sort, search })=> ({
+				url: "client/transactions",
+				method: "GET",
+				params: { page, pageSize, sort, search }
+			}),
+			
 		})
-
 	})
 })
 
