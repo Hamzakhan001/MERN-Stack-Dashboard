@@ -30,14 +30,13 @@ export const getProducts=async(req,res)=>{
 
 export const getCustomers = async (req,res)=>{
 	try {
-		const customers=await User.find({ role:"user" }).select("-password")
-		res.status(200).json(productstats)
+		const customers=await User.find({ role:"user" }).select("-password");
+		res.status(200).json(customers)
 	}
 	catch(err) {
 		console.log("req",req.params)
 		res.status(404).json({'message':err.message})
 	}
-
 }
 
 
