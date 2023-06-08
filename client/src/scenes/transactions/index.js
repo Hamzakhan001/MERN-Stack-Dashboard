@@ -75,7 +75,23 @@ const Transactions = () => {
 	]
 	
   return (
-	<div>Transactions</div>
+	<Box height="80vh">
+    <DataGrid 
+    loadin={isLoading}
+    getRowId={(row)=> row._id}
+    rows={(data && data.transactions) || []}
+    columns={columns}
+    rowCount={(data && data.total) || 0}
+    pagination
+    page= {page}
+    pageSize = {pageSize}
+    paginationMode = "server"
+    sortingMode = "server"
+    onPageChange = {(newPage) => setPage(newPage)}
+    onPageSizeChange = {(newPageSize) => setPageSize(newPageSize)}
+    onSortModelChange = {(newSortModel) => setSort(...newSortModel)}
+    />
+  </Box>
   )
 }
 
