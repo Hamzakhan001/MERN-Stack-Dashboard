@@ -1,8 +1,8 @@
 import React,{ useState } from 'react'
 import {DataGrid} from '@mui/x-data-grid';
+import { Box , useTheme } from "@mui/material"
 import { useGetTransactionsQuery } from '../../state/api';
 import { Header } from '../../components/Header';
-import { useTheme } from '@emotion/react';
 
 const Transactions = () => {
   const theme = useTheme();
@@ -20,6 +20,59 @@ const Transactions = () => {
 	search
   })
 
+
+  const columns=[
+		{
+			field:"_id",
+			headerName:"ID",
+			flex:1,
+
+		},
+		{
+			field:"userId",
+			headerName:"User ID",
+			flex: 1,
+
+		},
+		{
+			field:"createdAt",
+			headerName:"CREATED AT",
+			flex:1,
+
+		},
+		{
+			field:"products",
+			headerName:"No. of Products",
+			flex:0.5,
+      sortable:false,
+      renderCell: (params) => params.value.length
+
+		},
+		{
+			field:"cost",
+			headerName:"Cost",
+			flex:0.5,
+			renderCell:(params)=> `$${Number(params.value).toFixed(2)}`
+		},
+		{
+			field:"country",
+			headerName:"Country",
+			flex:0.4,
+
+		},
+		{
+			field:"occupation",
+			headerName:"Occupation",
+			flex:1,
+
+		},
+		{
+			field:"role",
+			headerName:"Role",
+			flex:1,
+
+		},
+	]
 	
   return (
 	<div>Transactions</div>
