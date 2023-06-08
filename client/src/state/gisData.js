@@ -1,4 +1,4 @@
-export const gisdata = {
+export const gisdata ={
     "type": "FeatureCollection",
     "features": [
       {
