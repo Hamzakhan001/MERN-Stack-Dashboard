@@ -90,6 +90,7 @@ const Transactions = () => {
     onPageChange = {(newPage) => setPage(newPage)}
     onPageSizeChange = {(newPageSize) => setPageSize(newPageSize)}
     onSortModelChange = {(newSortModel) => setSort(...newSortModel)}
+    // components={{ Toolbar: DataGridCustomerToolbar}}
     />
   </Box>
   )
