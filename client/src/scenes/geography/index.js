@@ -21,15 +21,31 @@ const Geography = () => {
 		border={`1px solid ${theme.palette.secondary[200]}`}
 		borderRadius="4px"
 		>
-			{data ? <ResponsiveChoropleth
-        data={data}
+		{data ? 
+		<ResponsiveChoropleth
+        data={gisdata.features}
+		theme= {{
+			axis: {
+				domain : {
+					line : {
+						stroke: theme.palette.secondary[200]
+					}
+				}, 
+				legend : {
+					text : {
+						fill: theme.palette.secondary[200]
+					}
+				}
+			}
+		}}
         features="/* please have a look at the description for usage */"
-        margin={{ top: 0, right: 0, bottom: 0, left: 0 }}
+        margin={{ top: 0, right: 0, bottom: 0, left: -50 }}
         colors="nivo"
         domain={[ 0, 1000000 ]}
         unknownColor="#666666"
         label="properties.name"
         valueFormat=".2s"
+		projectionScale={150}
         projectionTranslation={[ 0.5, 0.5 ]}
         projectionRotation={[ 0, 0, 0 ]}
         enableGraticule={true}
