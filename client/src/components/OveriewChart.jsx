@@ -42,6 +42,7 @@ const OveriewChart = ({ isDashboard =false, view }) => {
 			]
 			return { sales:currSales, units:currUnits}
 		})
+		return [[totalSalesLine],[totalUnitsLine]]
 	},[data])
 
 	if (!data || isLoading) return "Loading ..."
@@ -87,7 +88,7 @@ const OveriewChart = ({ isDashboard =false, view }) => {
         pointBorderColor={{ from: 'serieColor' }}
         pointLabelYOffset={-12}
         useMesh={true}
-        legends={[
+        legends={!isDashboard ? [
             {
                 anchor: 'bottom-right',
                 direction: 'column',
@@ -112,7 +113,8 @@ const OveriewChart = ({ isDashboard =false, view }) => {
                     }
                 ]
             }
-        ]}
+        ]:''
+	}
 		/>
   )
 }
