@@ -48,7 +48,7 @@ const OveriewChart = ({ isDashboard =false, view }) => {
 
   return (
 	<ResponsiveLine
-        data={data}
+        data={view == "sales" ? totalSalesLine : totalUnitsLine}
         margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
         xScale={{ type: 'point' }}
         yScale={{
@@ -62,10 +62,14 @@ const OveriewChart = ({ isDashboard =false, view }) => {
         axisTop={null}
         axisRight={null}
         axisBottom={{
+			format:((v)=>{
+			if(isDashboard) return v.slice(0,3);
+			return v;
+			}),
             tickSize: 5,
             tickPadding: 5,
             tickRotation: 0,
-            legend: 'transportation',
+            legend: isDashboard? '': "Month",
             legendOffset: 36,
             legendPosition: 'middle'
         }}
@@ -73,7 +77,7 @@ const OveriewChart = ({ isDashboard =false, view }) => {
             tickSize: 5,
             tickPadding: 5,
             tickRotation: 0,
-            legend: 'count',
+            legend: isDashboard? '' : `Total ${view === "sales" ? "Revenue":"Units"} for Year` ,
             legendOffset: -40,
             legendPosition: 'middle'
         }}
