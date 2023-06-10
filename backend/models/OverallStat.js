@@ -13,11 +13,11 @@ const OverallStatScehema =new mongoose.Schema({
 			totalUnits : Number,
 		}
 	],
-	dailyData : {
+	dailyData : [{
 		date: String,
 		totalSales : Number,
 		totalUnist : Number
-	},
+	}],
 	salesByCategory : {
 		type : Map,
 		of : Number
