@@ -6,7 +6,7 @@ import { useGetSalesQuery } from '../state/api';
 import "react-datepicker/dist/react-datepicker.css";
 import DatePicker from 'react-datepicker';
 
-const Daily = ({ isDashboard =false, view }) => {
+const Daily = () => {
 	const [startdate,setStartDate] =useState('2023-10-07');
 	const [enddate,setEndDate] =useState('2023-10-08');
 	const {data} = useGetSalesQuery();
@@ -60,14 +60,27 @@ const Daily = ({ isDashboard =false, view }) => {
 		<Header title="DAILY SALES" subtitle ="Daily Sales Chart" />
 		<Box height="75vh">
 			<Box display="flex" justifyContent="flex-end">
+			<Box>
 			<DatePicker
 			selected={startdate}
+			onChange={(date)=>setStartDate(date)}
+			selectsStart
+			showTimeSelect
+			startDate={startdate}
+			endDate={enddate}
+			/>
+			</Box>
+			<Box>
+			<DatePicker
+			selected={enddate}
 			onChange={(date)=>setEndDate(date)}
 			selectsStart
 			showTimeSelect
 			startDate={startdate}
 			endDate={enddate}
 			/>
+			</Box>
+			
 			</Box>
 
 			{data ?
@@ -86,14 +99,10 @@ const Daily = ({ isDashboard =false, view }) => {
 			axisTop={null}
 			axisRight={null}
 			axisBottom={{
-				format:((v)=>{
-				if(isDashboard) return v.slice(0,3);
-				return v;
-				}),
 				tickSize: 5,
 				tickPadding: 5,
 				tickRotation: 0,
-				legend: isDashboard? '': "Month",
+				legend: "Daily",
 				legendOffset: 36,
 				legendPosition: 'middle'
 			}}
@@ -101,7 +110,7 @@ const Daily = ({ isDashboard =false, view }) => {
 				tickSize: 5,
 				tickPadding: 5,
 				tickRotation: 0,
-				legend: isDashboard? '' : `Total ${view === "sales" ? "Revenue":"Units"} for Year` ,
+				legend: 'Daily Sales' ,
 				legendOffset: -40,
 				legendPosition: 'middle'
 			}}
@@ -111,7 +120,7 @@ const Daily = ({ isDashboard =false, view }) => {
 			pointBorderColor={{ from: 'serieColor' }}
 			pointLabelYOffset={-12}
 			useMesh={true}
-			legends={!isDashboard ? [
+			legends={[
 				{
 					anchor: 'bottom-right',
 					direction: 'column',
@@ -136,8 +145,7 @@ const Daily = ({ isDashboard =false, view }) => {
 						}
 					]
 				}
-			]:''
-			}
+			]}
 			/>
 			:''}
 		</Box>
