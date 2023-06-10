@@ -23,11 +23,28 @@ const OveriewChart = ({ isDashboard =false, view }) => {
 			data:[],
 		}
 		Object.values(monthlyData).reduce((acc ,{month,totalSales, totalUnits}) =>{
-			
+			const currSales = acc.sales + totalSales;
+			const currUnits = acc.units + totalUnits;
+
+			totalSalesLine.data = [
+				...totalSalesLine.data,
+				{
+					x:month,
+					y:currSales
+				}
+			];
+			totalUnitsLine.data = [
+				...totalUnitsLine.data,
+				{
+					x:month,
+					y:currUnits
+				}
+			]
+			return { sales:currSales, units:currUnits}
 		})
 	},[data])
 
-
+	if (!data || isLoading) return "Loading ..."
 
   return (
 	<div>OveriewChart</div>
