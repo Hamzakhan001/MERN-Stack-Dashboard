@@ -8,7 +8,7 @@ import Dashboard from "./scenes/dashboard";
 import Layout from "./scenes/layout";
 import Products from "./scenes/products";
 // import Customers from './scenes/customers;'
-import Customers from 'scenes/customers';
+import Customers from './scenes/customers';
 import Transactions from './scenes/transactions';
 import Geography from './scenes/geography';
 import Overview from './scenes/overview';

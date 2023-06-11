@@ -1,8 +1,8 @@
 import React,{useState,useMemo} from 'react';
 import { FormControl,Box, InputLabel, Select, MenuItem, useTheme } from '@mui/material';
-import Header from '../../components/Header';
+import {Header} from '../../components/Header.js';
 import {ResponsiveLine} from "@nivo/line";
-import { useGetSalesQuery } from '../state/api';
+import { useGetSalesQuery } from '../../state/api';
 import "react-datepicker/dist/react-datepicker.css";
 import DatePicker from 'react-datepicker';
 
